@@ -1,0 +1,193 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{display:flex;height:100vh;background:#f6f6f6;color:#333;transition:all 0.3s ease;}
+
+    /* ✅ Sidebar */
+    .sidebar{
+      width:240px;
+      background:#121212;
+      color:#fff;
+      padding:20px 0;
+      display:flex;
+      flex-direction:column;
+      transition:width 0.3s ease;
+      overflow:hidden;
+    }
+    .sidebar h2{
+      margin-left:20px;
+      font-size:22px;
+      font-weight:bold;
+      margin-bottom:40px;
+      transition:opacity 0.3s ease;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      list-style:none;
+      flex:1;
+    }
+    .nav-links li{
+      padding:14px 20px;
+      cursor:pointer;
+      transition:background .3s;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:#bbb;
+      font-size:15px;
+      white-space:nowrap;
+    }
+    .nav-links li.active{background:#1f1f1f;color:#fff;}
+    .nav-links li:hover{background:#1a1a1a;color:#fff;}
+    .nav-links .material-icons-outlined{
+      font-size:22px;
+      color:#bbb;
+      min-width:24px;
+      text-align:center;
+      transition:all 0.3s;
+    }
+    .nav-text{
+      transition:opacity 0.2s ease;
+    }
+
+    .minimize{
+      padding:14px 20px;
+      font-size:14px;
+      cursor:pointer;
+      border-top:1px solid #333;
+      color:#888;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      transition:all 0.2s;
+    }
+    .minimize .material-icons-outlined{font-size:20px;}
+
+    /* ✅ Sidebar Minimized */
+    .sidebar.minimized{
+      width:70px;
+    }
+    .sidebar.minimized h2,
+    .sidebar.minimized .nav-text,
+    .sidebar.minimized .minimize .nav-text{
+      opacity:0;
+      pointer-events:none;
+      width:0;
+    }
+    /* minimize में सिर्फ icons center */
+    .sidebar.minimized .nav-links li{
+      justify-content:center;
+      gap:0;
+      padding:14px 0;
+    }
+    .sidebar.minimized .minimize{
+      justify-content:center;
+      padding:14px 0;
+    }
+
+    /* ✅ Main Content */
+    .main-content{
+      flex:1;
+      padding:40px;
+      overflow-y:auto;
+      transition:margin-left 0.3s ease;
+    }
+    .overview-header{font-size:24px;font-weight:700;margin-bottom:25px;}
+
+    /* Top Cards */
+    .cards{display:flex;gap:20px;margin-bottom:25px;}
+    .card{flex:1;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+    .card h3{font-size:14px;color:#888;margin-bottom:10px;font-weight:500;}
+    .card p{font-size:22px;font-weight:bold;}
+    .card.black-card{background:#121212;color:#fff;}
+    .card.light-card{background:#fff;}
+
+    /* Sections */
+    .sections{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .section-card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:relative;}
+    .section-card h4{font-size:16px;margin-bottom:15px;font-weight:600;}
+    .see-details{position:absolute;right:20px;top:20px;font-size:13px;color:#777;cursor:pointer;}
+
+    /* ✅ Pots Section */
+    .pots-row{display:flex;gap:25px;align-items:flex-start;}
+    .total-saved-box{
+      background:#f9f9f9;
+      border:1px solid #eee;
+      border-radius:12px;
+      padding:14px 16px;
+      min-width:150px;
+      text-align:center;
+    }
+    .saved-inline{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      margin-bottom:6px;
+    }
+    .saved-inline img{width:20px;height:20px;}
+    .saved-title{font-weight:600;font-size:14px;}
+    .saved-amount{font-size:18px;font-weight:bold;}
+
+    .pots-list{
+      flex:1;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px 30px;
+    }
+    .pot-item{display:flex;align-items:flex-start;gap:8px;}
+    .pot-color{width:4px;height:36px;border-radius:4px;flex-shrink:0;}
+    .pot-text{display:flex;flex-direction:column;font-size:14px;}
+    .pot-title{margin-bottom:2px;}
+    .pot-amount{font-size:13px;color:#222;font-weight:bold;}
+
+    /* ✅ Budgets */
+    .budget-wrap{display:flex;align-items:center;gap:25px;}
+    .budget-chart{width:140px;height:140px;border-radius:50%;background:conic-gradient(#4bc0c0 0 40%,#ffcd56 40% 70%,#ff6384 70% 100%);position:relative;}
+    .budget-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;font-size:18px;font-weight:bold;}
+    .budget-center span{display:block;font-size:12px;color:#666;margin-top:3px;}
+    .budget-items{flex:1;display:flex;flex-direction:column;gap:12px;}
+    .budget-item{display:flex;align-items:center;justify-content:space-between;}
+    .budget-left{display:flex;align-items:center;gap:8px;}
+    .budget-line{width:4px;height:16px;border-radius:2px;}
+    .budget-name{font-size:14px;color:#444;font-weight:400;}
+    .budget-amt{font-size:14px;font-weight:bold;color:#222;}
+
+    /* ✅ Transactions */
+    .transactions-header{display:flex;justify-content:space-between;align-items:center;}
+    .transactions-header .view-all{font-size:13px;color:#777;cursor:pointer;}
+    .transaction{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee;}
+    .transaction-left{display:flex;align-items:center;gap:10px;}
+    .transaction-left img{width:35px;height:35px;border-radius:50%;object-fit:cover;}
+    .transaction .name{font-weight:500;}
+    .transaction-date{display:block;font-size:12px;color:#888;margin-top:2px;}
+    .transaction .amount{font-weight:bold;font-size:15px;text-align:right;display:flex;flex-direction:column;}
+
+    /* ✅ Recurring Bills */
+    .recurring-grid{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
+    .recurring-box{
+      background:#fff;
+      border:1px solid #eee;
+      border-radius:10px;
+      padding:14px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      position:relative;
+      transition:all 0.2s ease;
+    }
+    .recurring-box:hover{box-shadow:0 4px 10px rgba(0,0,0,0.1);transform:translateY(-2px);}
+    .recurring-box::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:4px;
+      height:100%;
+      background:var(--color);
+      border-radius:10px 0 0 10px;
+    }
+    .recurring-name{font-size:14px;font-weight:500;color:#444;margin-left:10px;}
+    .recurring-amount{font-size:15px;font-weight:bold;color:#222;}
+
+    @media(max-width:900px){.cards{flex-direction:column;} .sections{grid-template-columns:1fr;}}

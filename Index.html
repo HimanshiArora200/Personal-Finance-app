@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ✅ Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>finance</h2>
+    <ul class="nav-links">
+      <li class="active">
+        <span class="material-icons-outlined">dashboard</span>
+        <span class="nav-text">Overview</span>
+      </li>
+      <li>
+        <span class="material-icons-outlined">swap_horiz</span>
+        <span class="nav-text">Transactions</span>
+      </li>
+      <li>
+        <span class="material-icons-outlined">account_balance_wallet</span>
+        <span class="nav-text">Budgets</span>
+      </li>
+      <li>
+        <span class="material-icons-outlined">savings</span>
+        <span class="nav-text">Pots</span>
+      </li>
+      <li>
+        <span class="material-icons-outlined">receipt_long</span>
+        <span class="nav-text">Recurring Bills</span>
+      </li>
+    </ul>
+    <div class="minimize" id="toggleMenu">
+      <span class="material-icons-outlined">chevron_left</span> 
+      <span class="nav-text">Minimize Menu</span>
+    </div>
+  </div>
+
+  <!-- ✅ Main Content -->
+  <div class="main-content">
+    <div class="overview-header">Overview</div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card black-card"><h3>Current Balance</h3><p>$4,836.00</p></div>
+      <div class="card light-card"><h3>Income</h3><p>$3,814.25</p></div>
+      <div class="card light-card"><h3>Expenses</h3><p>$1,700.50</p></div>
+    </div>
+
+    <div class="sections">
+      <!-- ✅ Pots Section -->
+      <div class="section-card">
+        <h4>Pots</h4>
+        <span class="see-details">See Details →</span>
+        <div class="pots-row">
+          <div class="total-saved-box">
+            <div class="saved-inline">
+              <img src="https://cdn-icons-png.flaticon.com/512/2894/2894678.png" alt="Dollar Icon">
+              <span class="saved-title">Total Saved</span>
+            </div>
+            <div class="saved-amount">$850</div>
+          </div>
+          <div class="pots-list" id="pots-list"></div>
+        </div>
+      </div>
+
+      <!-- ✅ Budgets -->
+      <div class="section-card">
+        <h4>Budgets</h4>
+        <span class="see-details">See Details →</span>
+        <div class="budget-wrap">
+          <div class="budget-chart">
+            <div class="budget-center">$338 <span>of $975 limit</span></div>
+          </div>
+          <div class="budget-items">
+            <div class="budget-item">
+              <div class="budget-left">
+                <div class="budget-line" style="background:#4bc0c0;"></div>
+                <span class="budget-name">Entertainment</span>
+              </div>
+              <span class="budget-amt">$50</span>
+            </div>
+            <div class="budget-item">
+              <div class="budget-left">
+                <div class="budget-line" style="background:#ffcd56;"></div>
+                <span class="budget-name">Bills</span>
+              </div>
+              <span class="budget-amt">$120</span>
+            </div>
+            <div class="budget-item">
+              <div class="budget-left">
+                <div class="budget-line" style="background:#ff6384;"></div>
+                <span class="budget-name">Shopping</span>
+              </div>
+              <span class="budget-amt">$90</span>
+            </div>
+            <div class="budget-item">
+              <div class="budget-left">
+                <div class="budget-line" style="background:#36a2eb;"></div>
+                <span class="budget-name">Groceries</span>
+              </div>
+              <span class="budget-amt">$78</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Transactions -->
+      <div class="section-card">
+        <div class="transactions-header">
+          <h4>Transactions</h4><span class="view-all">View All →</span>
+        </div>
+        <div id="transactions-container"></div>
+      </div>
+
+      <!-- ✅ Recurring Bills -->
+      <div class="section-card">
+        <h4>Recurring Bills</h4><span class="see-details">See Details →</span>
+        <div class="recurring-grid">
+          <div class="recurring-box" style="--color:#4bc0c0">
+            <span class="recurring-name">Paid Bills</span>
+            <span class="recurring-amount">$190.00</span>
+          </div>
+          <div class="recurring-box" style="--color:#ffcd56">
+            <span class="recurring-name">Total Upcoming</span>
+            <span class="recurring-amount">$194.98</span>
+          </div>
+          <div class="recurring-box" style="--color:#ff6384">
+            <span class="recurring-name">Due Soon</span>
+            <span class="recurring-amount">$59.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
